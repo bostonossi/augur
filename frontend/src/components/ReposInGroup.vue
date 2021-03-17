@@ -54,8 +54,14 @@
                   </th>
                   <th scope="col" class="border-0" v-on:click="sortTable('issues_all_time')">
                     <div class="row">
-                      <div class="col col-0">Total Issue Count</div>
+                      <div class="col col-9">Total Issue Count</div>
                       <div class="arrow" v-bind:class="ascending ? 'arrow_up' : 'arrow_down'" v-if="'issues_all_time' == sortColumn"></div>
+                    </div>
+                  </th>
+                  <th scope="col" class="border-0" v-on:click="sortTable('watchers')">
+                    <div class="row">
+                      <div class="col col-0">Latest number of watchers</div>
+                      <div class="arrow" v-bind:class="ascending ? 'arrow_up' : 'arrow_down'" v-if="'watchers' == sortColumn"></div>
                     </div>
                   </th>
                   <!-- <th scope="col" class="border-0" v-on:click="sortTable('repo_status')">
@@ -77,6 +83,7 @@
                   <!-- <td>{{ repo.repo_count }}</td> -->
                   <td>{{ repo.commits_all_time }}</td>
                   <td>{{ repo.issues_all_time }}</td>
+                  <td>{{ repo.watchers }}</td>
                   <!-- <td>{{ repo.repo_status }}</td> -->
                   <!-- <td>
                     <div class="row">
