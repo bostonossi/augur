@@ -448,6 +448,7 @@ class Repo extends BaseRepo{
     }
   }
   initialDBMetric(){
+    this.addRepoMetric('watchers', 'watchers')
     this.addRepoMetric('codeChanges', 'code-changes')
     this.addRepoMetric('codeChangesLines', 'code-changes-lines')
     this.addRepoMetric('issuesNew', 'issues-new')
@@ -521,6 +522,7 @@ class RepoGroup extends BaseRepo {
 
   initialMetric(){
     if (this.repo_group_id) {
+      this.addRepoGroupMetric('watchers', 'watchers')
       this.addRepoGroupMetric('codeChanges', 'code-changes')
       this.addRepoGroupMetric('codeChangesLines', 'code-changes-lines')
       this.addRepoGroupMetric('issuesNew', 'issues-new')
