@@ -32,6 +32,7 @@ def create_routes(server):
                 repo.repo_status,
                 a.commits_all_time,
                 b.issues_all_time ,
+                c.watchers,
                 rg_name,
                 repo.repo_group_id
             FROM
@@ -43,6 +44,10 @@ def create_routes(server):
                 (select repo_id, count ( * ) as issues_all_time from issues where issues.pull_request IS NULL  group by repo_id) b
                 on
                 repo.repo_id = b.repo_id
+                left outer join
+                (SELECT distinct on (repo_id) repo_id, watchers_count AS watchers FROM repo_info ORDER BY repo_info.repo_id, repo_info.data_collection_date DESC) c 
+                on
+                repo.repo_id = c.repo_id
                 JOIN repo_groups ON repo_groups.repo_group_id = repo.repo_group_id
             order by repo_name
         """)

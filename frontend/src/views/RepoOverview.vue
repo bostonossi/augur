@@ -267,6 +267,20 @@
           ></dynamic-line-chart>
         </d-card>
       </div>
+
+      <div class="col col-6 repo_Overview_Col">
+        <d-card>
+          <dynamic-line-chart
+            source="watchers"
+            title="Number of watchers / Week"
+            cite-url
+            cite-text="Watchers"
+            filedTime="date"
+            fieldCount="added"
+            :smoothing="true"
+          ></dynamic-line-chart>
+        </d-card>
+      </div>
     </d-row>
   </d-container>
 </template>
